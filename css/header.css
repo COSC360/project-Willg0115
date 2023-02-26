@@ -1,0 +1,15 @@
+.header img{
+    float: left;
+}
+.header{
+    height: 120px;
+    border: 0 0 5em 0;
+    background-color: lightgray;
+}
+.header_right{
+    float:right;
+}
+.home, .login{
+    text-align: center;
+    vertical-align: center;
+}
