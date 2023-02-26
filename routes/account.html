@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My account</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/account.css">
+</head>
+<header>
+    <div class="header">
+        <a href="home.html" class="logo"><img src="../layout_and_logic_docs/Project_logo_roughdraft.png" width="150", height="80"></a>
+        <nav>
+            <form action="get" method="">
+                <input id="search" type="search" placeholder="Search Ski-it">
+            </form>
+            <ul>
+                <li><a class="home" href="home.html">Home</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <div class="menu">
+        <ul>
+            <li>Account info</li>
+            <li>Find People</li>
+            <li>Following</li>
+            <li>My Posts</li>
+            <li><button id="makePost" onclick="makePost()">New Post</button></li>
+        </ul>
+    </div>
+    <div class="main">
+        <!-- changes based on which item in sie menu is clicked, default will be 'My Posts'-->
+        <div class="post">
+            <p>Subject</p>
+            <p>content</p>
+        </div>
+        <div class="post">
+            <p>Subject</p>
+            <p>content</p>
+        </div>
+        <div class="post">
+            <p>Subject</p>
+            <p>content</p>
+        </div>
+        <div class="post-popup">
+            <form action="" class="postForm">
+                <h1>New Post</h1>
+                
+                <input type="text" placeholder="subject" name="subject" required>
+
+                <label for="recent">Resort </label>
+                <input type="radio" name="loctype" id="resort">
+                <label for="backcountry">Backcountry </label>
+                <input type="radio" name="loctype" id="backcountry">
+
+                <textarea placeholder="content"></textarea>
+            
+                <button type="submit" class="btn">Post</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+            </form>
+          </div>
+    </div>
+</body>

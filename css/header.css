@@ -45,7 +45,44 @@ header nav a{
     color:azure;
     font-family: 'Montserrat', sans-serif;
 }
-
-
+.menu{
+    position: fixed;
+    top:80px;
+    left:0;
+    padding: 0 1em 0 1em;
+    height:100vh;
+    background-color: azure;
+    margin: 0em 2em 0em 0em;
+    width: 200px;
+    display:flex;
+    flex-direction:column;
+    bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    border-right: solid 1px black;
+}
+.menu ul{
+    list-style:none;
+    font-size: 20px;
+}
+.menu li{
+    vertical-align: center;
+    text-align: left;
+    margin: 1em 1em 1em 1em;
+}
+.menu li a{
+    text-decoration: none;
+    padding: .1em .7em .1em .7em;
+    background-color: #AA7F39;
+    border: 1px solid #AA7F39;
+    color: white;
+    border-radius: 20px;
+    position: bottom;
+}
+.main{
+    font-family: "Comic sans MS", "Comic Sans", "cursive", sans-serif;
+    overflow: scroll;
+    margin: 80px 2em 2em 210px;
+    padding: 0 1.5em 0 1.5em;
+}
 
 
