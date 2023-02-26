@@ -1,0 +1,97 @@
+.header img{
+    float: left;
+}
+.header{
+    height: 80px;
+    background-color: #256F5C;
+  
+}
+nav{
+    float:right;
+    display:flex;
+}
+
+.header_right .home{
+    border: 1px solid black;
+    color:white;
+    background-color:cornflowerblue;
+    margin: 5em 10em 5em;
+    display:flex;
+}
+.header ul{
+    list-style:none;
+}
+.header li{
+    text-align: center;
+    vertical-align: center;
+    margin-right: 1em;
+    text-decoration: none;
+    display:inline-block;
+    border: 1px solid #AA7F39;
+    background-color: #AA7F39;
+    border-radius: 20px;
+    padding: .1em .7em .1em .7em;
+    font-size:30px;
+    
+}
+.header nav a{
+    text-decoration: none;
+    color:azure;
+    font-family: 'Montserrat', sans-serif;
+}
+.menu{
+    float: left;
+    padding: 0 1em 0 1em;
+    height:100vh;
+    background-color: azure;
+    margin: 0em 2em 0em 0em;
+    width: 200px;
+    display:flex;
+    flex-direction:column;
+    bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    border-right: solid 1px black;
+}
+.menu ul{
+    list-style:none;
+    font-size: 20px;
+}
+.menu li{
+    vertical-align: center;
+    text-align: left;
+    margin: 1em 1em 1em 1em;
+}
+.menu li a{
+    text-decoration: none;
+    padding: .1em .7em .1em .7em;
+    background-color: #AA7F39;
+    border: 1px solid #AA7F39;
+    color: white;
+    border-radius: 20px;
+    position: bottom;
+}
+.main, .popular{
+    margin: 2em 2em 2em 2em;
+    padding: 0 1.5em 0 1.5em;
+}
+.main table{
+    font-family: "Comic sans MS", "Comic Sans", "cursive", sans-serif;
+    width:600px;
+}
+.main table td{
+    text-align: center;
+    border: 1px solid black;
+}
+.popular ul{
+    list-style: none;
+
+
+}
+.popular li{
+    display: inline-block;
+    padding: .1em .7em .1em .7em;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+
