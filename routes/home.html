@@ -6,8 +6,11 @@
 </head>
 <header>
     <div class="header">
-        <a href="home.html" class="logo"><img src="../layout_and_logic_docs/Project_logo_roughdraft.png" witdth="150", height="80"></a>
+        <a href="home.html" class="logo"><img src="../layout_and_logic_docs/Project_logo_roughdraft.png" width="150", height="80"></a>
         <nav>
+            <form action="get" method="">
+                <input id="search" type="search" placeholder="Search Ski-it">
+            </form>
             <ul>
                 <li><a class="home" href="home.html">Home</a></li>
                 <li><a class="login" href="login.html">Log In</a></li>
@@ -18,35 +21,56 @@
 <body>
     <div class="menu">
         <ul>
-            <li><a href=#post class="newPost">New Post</a></li>
             <li>Popular</li>
             <li>locations</li>
             <li>Resorts</li>
             <li>Back Country</li>
+            <!-- if logged in can make post-->
+            <li id="makePost"><a href=#post class="newPost">New Post</a></li>
         </ul>
     </div>
     <div class="main">
-        <table>
-            <tr>
-                <th colspan="3">Today's Dumpings</th>
-            </tr>
-            <tr>
-                <td>Jackson Hole</td>
-                <td>Revelstoke</td>
-                <td>Lake Tahoe</td>
-            </tr>
+        <div class="dumpings">
+            <h2>Today's Dumpings</h2>
+            <div class="dumping">
+                <img >
+                <h3>Jackson Hole</h3>
+            </div>
+            <div class="dumping">
+                <img >
+                <h3>Revelstoke</h3>
+            </div>
+            <div class="dumping">
+                <img >
+                <h3>Big White</h3>
+            </div>
+            
+        </div>
 
-        </table>
         <div class="popular">
             <h2>Popular Posts</h2>
             <div class="filter">
-                <ul>
-                    <li>
-                        Where?
-                    </li>
-                    <li>Recent</li>
-                    <li>Top Voted</li>
-                </ul>
+                <form action="get" method="">
+                    <fieldset>
+                        <label for="country">Where?: </label>
+                        <select name="country" id="country" aria-placeholder="Where?">
+                            <option value="1">Canada</option>
+                            <option value="2">United States</option>
+                        </select>
+                        <select name="state" id="state">
+                            <!--set options based on country selected -->
+                        </select>
+                        <label for="recent">Recent </label>
+                        <input type="radio" name="filter" id="recent">
+                        <label for="topvote">Top Voted </label>
+                        <input type="radio" name="filter" id="topvote">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="posts">
+            <div class="post">
+                a post here
             </div>
         </div>
     </div>

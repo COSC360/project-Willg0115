@@ -1,46 +1,54 @@
-.header img{
+
+header img{
     float: left;
 }
-.header{
+header{
     height: 80px;
+    width: 100%;
     background-color: #256F5C;
-  
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+header input{
+    
+    width: max-content;
 }
 nav{
     float:right;
     display:flex;
 }
-
-.header_right .home{
-    border: 1px solid black;
-    color:white;
-    background-color:cornflowerblue;
-    margin: 5em 10em 5em;
-    display:flex;
-}
-.header ul{
+header ul{
     list-style:none;
 }
-.header li{
-    text-align: center;
-    vertical-align: center;
+header li{
     margin-right: 1em;
-    text-decoration: none;
+    text-decoration: none; 
+    text-align: center;
+}
+header li, #search{
     display:inline-block;
     border: 1px solid #AA7F39;
     background-color: #AA7F39;
     border-radius: 20px;
     padding: .1em .7em .1em .7em;
     font-size:30px;
-    
 }
-.header nav a{
+#search {
+    overflow-x: auto;
+    text-align: left;
+    margin-top:0.55em;
+    width: 80%;
+}
+header nav a{
     text-decoration: none;
     color:azure;
     font-family: 'Montserrat', sans-serif;
 }
 .menu{
-    float: left;
+    position: fixed;
+    top:80px;
+    left:0;
     padding: 0 1em 0 1em;
     height:100vh;
     background-color: azure;
@@ -51,6 +59,10 @@ nav{
     bottom: 0;
     font-family: 'Montserrat', sans-serif;
     border-right: solid 1px black;
+}
+#makePost {
+    position: absolute;
+    bottom: 100px;
 }
 .menu ul{
     list-style:none;
@@ -70,28 +82,48 @@ nav{
     border-radius: 20px;
     position: bottom;
 }
-.main, .popular{
-    margin: 2em 2em 2em 2em;
+.main{
+    font-family: "Comic sans MS", "Comic Sans", "cursive", sans-serif;
+    overflow: scroll;
+    margin: 80px 2em 2em 210px;
     padding: 0 1.5em 0 1.5em;
 }
-.main table{
-    font-family: "Comic sans MS", "Comic Sans", "cursive", sans-serif;
-    width:600px;
+.dumpings {
+    overflow-x: scroll;
+    height: 15em;
 }
-.main table td{
-    text-align: center;
-    border: 1px solid black;
-}
-.popular ul{
-    list-style: none;
-
-
-}
-.popular li{
+.dumping {
+    position: relative;
     display: inline-block;
+    width:31%;
+    border: 1px solid black;
+    overflow:scroll;
+    height: 60%;
+}
+.dumping h3{
+    margin-left: 1em;
+    position: absolute;
+    bottom: 0;
+}
+.popular form{
     padding: .1em .7em .1em .7em;
     border-radius: 20px;
     border: 1px solid black;
 }
+.post {
+    margin-top:1em;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    padding: 0.5em
+}
+.dumping, .popular form, .post {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+fieldset {
+    border: none;
+}
+
 
 
