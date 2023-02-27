@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Create Account Page</title>
+    <link rel="stylesheet" href="../css/create.css">
+</head>
+<header>
+    <div>
+        <a href="home.html"><img src="../layout_and_logic_docs/Project_logo_roughdraft.png"/></a>
+    </div>
+</header>
+<body>
+    <table>
+        <form action="home.html" method="POST">
+            <tr>
+                <td colspan="3"><input type="text" placeholder="First Name" name="firstName"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="text" placeholder="Last Name" name="lastName"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="text" placeholder="Username" name="username"></td>
+            </tr>
+            <tr>
+                <td colspan="3" id="birthday">Birthday</td>
+            </tr>
+            <tr>
+                <td>
+                    <select class="birthday" name="day">
+                        <script>
+                            for (var i=1; i<= 31; i++){
+                                document.write('<option value="'+ i + '">'+i+'<option>');
+                            }
+                        </script>
+                    </select>
+                </td>
+                <td>
+                    <select class="birthday" name="month">
+                        <script>
+                            var months= ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                            for(var i=0; i<months.length; i++){
+                                document.write(`<option value=`+ months[i] + `>`+months[i]+`</option>`);
+                            }
+                        </script>
+                    </select>
+                </td>
+                <td>
+                    <select class="birthday" name="year">
+                        <script>
+                            var year = new Date().getFullYear();
+                            for (var i=year; i>=1990; i--){
+                                document.write(`<option value=`+i+`>`+i+`</option>`);
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="password" name="password" placeholder="Password"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="password" name=confirm" placeholder="Confirm Password"</td>
+            </tr>
+            <tr>
+                <td colspan="3"><button type="submit" id="register">Register</button></td>
+            </tr>
+        </form>       
+    </table>
+</body>

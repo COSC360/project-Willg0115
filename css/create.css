@@ -1,0 +1,53 @@
+header img{
+    width: auto;
+    height: 20em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+table{
+    width: 17em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+td input, td .birthday, td #register, #birthday{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+td input{
+    width: 20em;
+    height: 2em;
+    margin: 0 0 1em 0;
+    column-span: all;
+    border-radius: .5em;
+}
+td #register{
+    text-decoration: none;
+    margin-top: .1em;
+    background-color: #AA7F39;
+    border: .5px solid black;
+    border-radius: 1em;
+    color:white;
+    padding: .1 1em .1em 1em;
+    width: 100%;
+    height: 2em;
+
+}
+td .birthday{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+    margin-bottom: .9em;
+    margin-top: .2em;
+    border-radius: .5em;
+}
+#birthday{
+    margin-bottom: .2em;
+    font-weight: bold;
+  
+}
+
