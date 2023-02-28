@@ -1,11 +1,11 @@
-header, .main, .menu{
-    opacity: 0.2;
-}
+
 #makePost {
-    position: absolute;
-    bottom:100px;
+    position: relative;
+    left:1.5em;
+    width: 4.5em;
 }
 .post {
+    opacity: 0.3;
     margin-top:1em;
     margin-bottom: 1em;
     border: 1px solid black;
@@ -15,35 +15,32 @@ header, .main, .menu{
     transition: 0.3s;
 }
 .post-popup {
-    font-family: "Comic sans MS", "Comic Sans", "cursive", sans-serif;
     overflow: scroll;
     border: 1px solid black;
     border-radius: 0.5em;
-    height: 30em;
-    width: 30em;
     opacity: 1;
-    position: fixed;
-    top: 10em;
-    left: 25em;
     align-self: center;
-    background-color: white;
-    z-index: 2;
+    z-index: 100;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    font-size: larger;
 }
 .post-popup textarea{
     display: block;
     height: 20em;
-    width: 30em;
+    width: 95%;
     margin: 1.5em auto 1.5em auto;
 }
 .post-popup h1{
-    margin-left: 1.2em;
+    margin-left: 0.8em;
 }
 #subject{
-    margin-left: 2.8em;
+    margin-left: 1.5em;
 }
-button, a {
+#subject, textarea{
+    font-size: large;
+}
+button, a:not(.logo, .home) {
     text-decoration: none;
     padding: .1em .7em .1em .7em;
     background-color: #AA7F39;
@@ -53,4 +50,5 @@ button, a {
     position: bottom;
     float: right;
     margin-right: 1.5em;
+    margin-bottom: 1.5em;
 }

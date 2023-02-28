@@ -9,14 +9,14 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-}
-header input{
-    
-    width: max-content;
+    z-index: 100;
+    white-space: nowrap;
 }
 nav{
     float:right;
     display:flex;
+    white-space: nowrap;
+
 }
 header ul{
     list-style:none;
@@ -25,20 +25,21 @@ header li{
     margin-right: 1em;
     text-decoration: none; 
     text-align: center;
+    background-color: #AA7F39;
 }
 header li, #search{
     display:inline-block;
     border: 1px solid #AA7F39;
-    background-color: #AA7F39;
     border-radius: 20px;
     padding: .1em .7em .1em .7em;
     font-size:30px;
 }
 #search {
+    background-color: azure;
     overflow-x: auto;
     text-align: left;
     margin-top:0.55em;
-    width: 80%;
+    width: 100%;
 }
 header nav a{
     text-decoration: none;
@@ -47,6 +48,7 @@ header nav a{
 }
 .menu{
     position: fixed;
+    overflow: scroll;
     top:80px;
     left:0;
     padding: 0 1em 0 1em;
@@ -56,9 +58,9 @@ header nav a{
     width: 200px;
     display:flex;
     flex-direction:column;
-    bottom: 0;
     font-family: 'Montserrat', sans-serif;
     border-right: solid 1px black;
+    z-index: 100;
 }
 .menu ul{
     list-style:none;
@@ -69,20 +71,15 @@ header nav a{
     text-align: left;
     margin: 1em 1em 1em 1em;
 }
-.menu li a{
-    text-decoration: none;
-    padding: .1em .7em .1em .7em;
-    background-color: #AA7F39;
-    border: 1px solid #AA7F39;
-    color: white;
-    border-radius: 20px;
-    position: bottom;
-}
 .main{
+    position: relative;
+    top:80px;
+    left:200px;
     font-family: "Comic sans MS", "Comic Sans", "cursive", sans-serif;
     overflow: scroll;
-    margin: 80px 2em 2em 210px;
+    margin: 1em 1em 1em 1em;
     padding: 0 1.5em 0 1.5em;
+    width: 80%;
 }
 
 

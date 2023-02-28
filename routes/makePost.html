@@ -18,25 +18,6 @@
         </nav>
     </div>
 </header>
-<div class="post-popup">
-    <form action="" method="post" class="postForm">
-        <h1>New Post</h1>
-        
-        <input id="subject" type="text" placeholder="subject" name="subject" required>
-
-        <label for="recent">Resort </label>
-        <input type="radio" name="loctype" id="resort">
-        <label for="backcountry">Backcountry </label>
-        <input type="radio" name="loctype" id="backcountry">
-
-        <textarea placeholder="content"></textarea>
-    
-        <!-- <button type="submit" class="btn">Post</button> -->
-        <!-- <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button> -->
-        <a href="account.html">Post</a>
-        <a href="account.html">Cancel</a>
-    </form>
-  </div>
 <body>
     <div class="menu">
         <ul>
@@ -48,6 +29,26 @@
         </ul>
     </div>
     <div class="main">
+        <div class="post-popup">
+            <form action="" method="post" class="postForm">
+                <h1>New Post</h1>
+
+                <input id="subject" type="text" placeholder="subject" name="subject" required>
+            
+                <label for="recent">Resort </label>
+                <input type="radio" name="loctype" id="resort">
+                <label for="backcountry">Backcountry </label>
+                <input type="radio" name="loctype" id="backcountry">
+            
+                <textarea placeholder="content"></textarea>
+            
+                <!-- <button type="submit" class="btn">Post</button> -->
+                <!-- <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button> -->
+                <a href="account.html">Post</a>
+                <a href="account.html">Cancel</a>
+            </form>
+        </div>
+
         <!-- changes based on which item in sie menu is clicked, default will be 'My Posts'-->
         <div class="post">
             <p>Subject</p>
