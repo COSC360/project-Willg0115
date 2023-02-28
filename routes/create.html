@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <title>Create Account Page</title>
     <link rel="stylesheet" href="../css/create.css">
+    <script type="text/javascript" src="../script/create.js"></script>
 </head>
 <header>
     <div>
@@ -10,23 +11,26 @@
     </div>
 </header>
 <body>
-    <table>
-        <form action="home.html" method="POST">
+    <form id="createForm" action="home.html" method="POST">
+        <table>
             <tr>
-                <td colspan="3"><input type="text" placeholder="First Name" name="firstName"></td>
+                <td colspan="3"><input class="required" type="text" placeholder="First Name" name="firstName"></td>
             </tr>
             <tr>
-                <td colspan="3"><input type="text" placeholder="Last Name" name="lastName"></td>
+                <td colspan="3"><input class="required" type="text" placeholder="Last Name" name="lastName"></td>
             </tr>
             <tr>
-                <td colspan="3"><input type="text" placeholder="Username" name="username"></td>
+                <td colspan="3"><input class="required" type="text" placeholder="Username" name="username"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input class="required" type="email" placeholder="Email" name="email"></td>
             </tr>
             <tr>
                 <td colspan="3" id="birthday">Birthday</td>
             </tr>
             <tr>
                 <td>
-                    <select class="birthday" name="day">
+                    <select class="birthday" name="day" required>
                         <script>
                             for (var i=1; i<= 31; i++){
                                 document.write('<option value="'+ i + '">'+i+'<option>');
@@ -35,7 +39,7 @@
                     </select>
                 </td>
                 <td>
-                    <select class="birthday" name="month">
+                    <select class="birthday" name="month" required>
                         <script>
                             var months= ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                             for(var i=0; i<months.length; i++){
@@ -45,7 +49,7 @@
                     </select>
                 </td>
                 <td>
-                    <select class="birthday" name="year">
+                    <select class="birthday" name="year" required>
                         <script>
                             var year = new Date().getFullYear();
                             for (var i=year; i>=1990; i--){
@@ -56,14 +60,14 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="3"><input type="password" name="password" placeholder="Password"></td>
+                <td colspan="3"><input class="required" type="password" name="password" placeholder="Password"></td>
             </tr>
             <tr>
-                <td colspan="3"><input type="password" name=confirm" placeholder="Confirm Password"</td>
+                <td colspan="3"><input class="required" type="password" name="confirm" placeholder="Confirm Password"></td>
             </tr>
             <tr>
                 <td colspan="3"><button type="submit" id="register">Register</button></td>
             </tr>
-        </form>       
-    </table>
+        </table>
+    </form>       
 </body>

@@ -4,7 +4,6 @@ header img{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1em;
 }
 
 table{
@@ -49,5 +48,8 @@ td .birthday{
     margin-bottom: .2em;
     font-weight: bold;
   
+}
+.error {
+    border-color: red;
 }
 
