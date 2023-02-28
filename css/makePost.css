@@ -43,7 +43,7 @@ header, .main, .menu{
 #subject{
     margin-left: 2.8em;
 }
-button {
+button, a {
     text-decoration: none;
     padding: .1em .7em .1em .7em;
     background-color: #AA7F39;
