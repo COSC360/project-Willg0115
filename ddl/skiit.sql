@@ -5,11 +5,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users`(
     `user_id` INT AUTO_INCREMENT PRIMARY KEY,
-    'username' varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL,
+    `password` varchar(255) NOT NULL,
     `firstname` varchar(255) NOT NULL,
     `lastName` varchar(255) NOT NULL,
     `email` varchar(255)NOT NULL,
-    `birthdate` DATE NOT NULL,
     `registration_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `profile_img` VARCHAR(255) DEFAULT NULL,
     `thumbnail_img` VARCHAR(255) DEFAULT NULL

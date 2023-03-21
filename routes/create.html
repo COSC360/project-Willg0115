@@ -11,7 +11,7 @@
     </div>
 </header>
 <body>
-    <form id="createForm" action="home.html" method="POST">
+    <form id="createForm" action="create.php" method="post">
         <table>
             <tr>
                 <td colspan="3"><input class="required" type="text" placeholder="First Name" name="firstName"></td>
@@ -24,40 +24,6 @@
             </tr>
             <tr>
                 <td colspan="3"><input class="required" type="email" placeholder="Email" name="email"></td>
-            </tr>
-            <tr>
-                <td colspan="3" id="birthday">Birthday</td>
-            </tr>
-            <tr>
-                <td>
-                    <select class="birthday" name="day" required>
-                        <script>
-                            for (var i=1; i<= 31; i++){
-                                document.write('<option value="'+ i + '">'+i+'<option>');
-                            }
-                        </script>
-                    </select>
-                </td>
-                <td>
-                    <select class="birthday" name="month" required>
-                        <script>
-                            var months= ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                            for(var i=0; i<months.length; i++){
-                                document.write(`<option value=`+ months[i] + `>`+months[i]+`</option>`);
-                            }
-                        </script>
-                    </select>
-                </td>
-                <td>
-                    <select class="birthday" name="year" required>
-                        <script>
-                            var year = new Date().getFullYear();
-                            for (var i=year; i>=1990; i--){
-                                document.write(`<option value=`+i+`>`+i+`</option>`);
-                            }
-                        </script>
-                    </select>
-                </td>
             </tr>
             <tr>
                 <td colspan="3"><input class="required" type="password" name="password" placeholder="Password"></td>
