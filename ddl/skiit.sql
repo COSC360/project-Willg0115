@@ -7,20 +7,21 @@ CREATE TABLE `users`(
     `user_id` INT AUTO_INCREMENT PRIMARY KEY,
     `username` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL,
-    `firstname` varchar(255) NOT NULL,
+    `firstName` varchar(255) NOT NULL,
     `lastName` varchar(255) NOT NULL,
     `email` varchar(255)NOT NULL,
     `registration_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `profile_img` VARCHAR(255) DEFAULT NULL,
-    `thumbnail_img` VARCHAR(255) DEFAULT NULL
+    `thumbnail_img` VARCHAR(255) DEFAULT NULL,
+    `role` ENUM('user', 'admin') NOT NULL DEFAULT 'user'
 );
 
 CREATE TABLE `posts`(
     `post_id` INT AUTO_INCREMENT PRIMARY KEY,
     `user_id` INT NOT NULL,
     `title` VARCHAR(255) NOT NULL,
-    `topic` VARCHAR(255) NOT NULL,
     `content` TEXT NOT NULL,
+    `type` ENUM('resort', 'backcountry') NOT NULL,
     `post_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `likes` INT DEFAULT 0,
     `post_img` VARCHAR(255) DEFAULT NULL,
@@ -38,3 +39,7 @@ CREATE TABLE `comments`(
     FOREIGN KEY(post_id) REFERENCES posts(post_id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
+
+INSERT INTO users (username, password, firstName, lastName, email, role) VALUES(alrick, alrick, alrick, vincent, alrick.vincent@gmail.com, admin);
+INSERT INTO users (username, password, firstName, lastName, email, role) VALUES(will, will, will, garbutt, will.dkg@gmail.com, admin);
+INSERT INTO users(username, password, firstName, lastName, email, role) VALUES(test, test, test, test, will.dkg@gmail.com, user);
