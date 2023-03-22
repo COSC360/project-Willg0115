@@ -16,8 +16,12 @@
             <ul>
                 <li><a class="home" href="home.html">Home</a></li>
                 <?php
-                if(isset($_SESSION['user_id'])){
+                if(isset($_SESSION['username'])){
                     echo "<li><a class=\"login\" href=\"account.html\">My Account</a></li>";
+                    echo "<li><a class=\"login\" href=\"logout.php\">Sign Out</a></li>";
+                    if(checkAdmin($_SESSION('username'))){
+                        echo "<li><a class=\"login\" href=\"admin.php\">Admin</a></li>";
+                    }
                 }else{
                     echo "<li><a class=\"login\" href=\"login.html\">Log In</a></li>";
                 }

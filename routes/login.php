@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
-session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['password'])) {
-    
+    session_start();
+
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = ($_POST['password']);
 
     //nee to update with our database
     $host = "localhost";
@@ -15,14 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['p
     try{
         $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $pass);
 
-        $query = "SELECT user_id, username, password FROM users WHERE username = ? and password = ?";
+        $query = "SELECT username, password FROM users WHERE username = ? and password = ?";
         $stmt = $pdo->prepare($query);
         $stmt->bindValue(1, $username);
         $stmt->bindValue(2, $password);
         $stmt->execute();
         
         if($stmt->rowCount()>0){
-            $_SESSION['user_id'] = $stmt->fetch()[$user_Id];
+            $_SESSION['username'] = $username;
             $pdo = null;
             header('Location: home.php');
             exit;
