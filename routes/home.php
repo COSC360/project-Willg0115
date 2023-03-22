@@ -14,7 +14,7 @@
                 <input id="search" type="search" placeholder="Search Ski-it">
             </form>
             <ul>
-                <li><a class="home" href="home.html">Home</a></li>
+                <li><a class="home" href="home.php">Home</a></li>
                 <?php
                 if(isset($_SESSION['username'])){
                     echo "<li><a class=\"login\" href=\"account.html\">My Account</a></li>";
@@ -33,12 +33,9 @@
 <body>
     <div class="menu">
         <ul>
-            <li><input type="radio" name="filter" value="Popular"></li>
-            <label for="html">Popular</label>
-            <li><input type="radio" name="filter" value="Resort"></li>
-            <label for="html">Resort</label>
-            <li><input type="radio" name="filter" value="Back Country"></li>
-            <label for="html">Back Country</label>
+            <li><a href='home.php'>Popular</a></li>
+            <li><a href='resort.php'>Resort</a></li>
+            <li><a href='backcountry.php'>Backcountry</a></li>
         </ul>
     </div>
     <div class="main">
@@ -79,13 +76,27 @@
                     if ($stmt->rowCount() > 0) {
                         while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             echo "<div class='post'>";
-                            echo "<h2>" . $post['title'] . "</h2>";
-                            echo "<h3>" . $post['type'] . "</h3>";
+                            echo "<h2>" . $post['username'] . "</h2>";
+                            echo "<h3>" . $post['title'] . "</h3>";
+                            echo "<h4>" . $post['type'] . "</h4>";
                             if (!empty($post['post_img'])) {
                                 echo "<img src='" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
                             }
                             echo "<p>" . $post['content'] . "</p>";
                             echo "<p><button class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
+
+                            $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
+                            $stmt2 = $pdo->prepare($query);
+                            $stmt2->bindValue(1, $post['post_id']);
+                            $stmt2->execute();
+                            if ($stmt2->rowCount() > 0) {
+                                while ($comment = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+                                    echo "<div class ='post'>";
+                                    echo "<h3>" . $comment['username'] . "</h3>";
+                                    echo "<p>" . $comment['content'] . "</p>";
+                                    echo "</div>";
+                                }
+                            }
                             echo "</div>";
                         }
                     } else {
