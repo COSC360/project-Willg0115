@@ -17,9 +17,12 @@
     </div>
     <div class="main">
         <?php
+            include 'shortcuts.php';
+            $pdo = connectToDatabase();
+            session_start();
             $query = "SELECT * FROM posts WHERE username = ? ORDER BY post_date DESC";
             $stmt = $pdo->prepare($query);
-            $stmt->bindValue(1, $username);
+            $stmt->bindValue(1, $_SESSION['username']);
             $stmt->execute();
         
             if ($stmt->rowCount() > 0) {
