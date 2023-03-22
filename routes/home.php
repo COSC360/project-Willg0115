@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/home.css">
 </head>
 <header>
-    <?php session_start(); ?>
+    <?php session_start();?>
     <div class="header">
         <a href="home.html" class="logo"><img src="../layout_and_logic_docs/Project_logo_roughdraft.png" width="150", height="80"></a>
         <nav>
@@ -16,10 +16,12 @@
             <ul>
                 <li><a class="home" href="home.html">Home</a></li>
                 <?php
+                include 'shortcuts.php';
+
                 if(isset($_SESSION['username'])){
                     echo "<li><a class=\"login\" href=\"account.html\">My Account</a></li>";
                     echo "<li><a class=\"login\" href=\"logout.php\">Sign Out</a></li>";
-                    if(checkAdmin($_SESSION('username'))){
+                    if(isAdmin($_SESSION('username'))){
                         echo "<li><a class=\"login\" href=\"admin.php\">Admin</a></li>";
                     }
                 }else{
