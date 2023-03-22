@@ -67,6 +67,8 @@ header nav a{
     font-size: 20px;
 }
 .menu li{
+    text-decoration: none; 
+    background-color: #AA7F39;
     vertical-align: center;
     text-align: left;
     margin: 1em 1em 1em 1em;
