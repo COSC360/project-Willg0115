@@ -5,7 +5,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users`(
     `user_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `username` varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL UNIQUE,
     `password` varchar(255) NOT NULL,
     `firstName` varchar(255) NOT NULL,
     `lastName` varchar(255) NOT NULL,
@@ -18,28 +18,31 @@ CREATE TABLE `users`(
 
 CREATE TABLE `posts`(
     `post_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT NOT NULL,
+    `username` INT NOT NULL,
     `title` VARCHAR(255) NOT NULL,
     `content` TEXT NOT NULL,
     `type` ENUM('resort', 'backcountry') NOT NULL,
     `post_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `likes` INT DEFAULT 0,
     `post_img` VARCHAR(255) DEFAULT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY(username) REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `comments`(
     `comment_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT NOT NULL,
+    `username` INT NOT NULL,
     `post_id` INT NOT NULL,
     `content` TEXT NOT NULL,
     `comment_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `likes` INT DEFAULT 0,
-    FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY(username) REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY(post_id) REFERENCES posts(post_id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
-
-INSERT INTO users (username, password, firstName, lastName, email, role) VALUES(alrick, alrick, alrick, vincent, alrick.vincent@gmail.com, admin);
-INSERT INTO users (username, password, firstName, lastName, email, role) VALUES(will, will, will, garbutt, will.dkg@gmail.com, admin);
-INSERT INTO users(username, password, firstName, lastName, email, role) VALUES(test, test, test, test, will.dkg@gmail.com, user);
+-- insert admin users
+INSERT INTO users (username, password, firstName, lastName, email, role) VALUES('alrick', 'alrick', 'alrick', 'vincent', 'alrick.vincent@gmail.com', 'admin');
+INSERT INTO users (username, password, firstName, lastName, email, role) VALUES('will', 'will', 'will', 'garbutt', 'will.dkg@gmail.com', 'admin');
+-- inser test user
+INSERT INTO users(username, password, firstName, lastName, email, role) VALUES('test', 'test', 'test', 'test', 'will.dkg@gmail.com', 'user');
+-- insert test post
+INSERT INTO posts(username, title, content, type) VALUES ('test', 'test post', 'This is a test post to try functionalities and display', 'backcountry');
