@@ -4,8 +4,7 @@ SET time_zone = "+00:00";
 -- Table structure for table 'users'
 
 CREATE TABLE `users`(
-    `user_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `username` varchar(255) NOT NULL UNIQUE,
+    `username` varchar(255) NOT NULL PRIMARY KEY,
     `password` varchar(255) NOT NULL,
     `firstName` varchar(255) NOT NULL,
     `lastName` varchar(255) NOT NULL,
@@ -18,7 +17,7 @@ CREATE TABLE `users`(
 
 CREATE TABLE `posts`(
     `post_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `username` INT NOT NULL,
+    `username` varchar(255) NOT NULL,
     `title` VARCHAR(255) NOT NULL,
     `content` TEXT NOT NULL,
     `type` ENUM('resort', 'backcountry') NOT NULL,
@@ -30,7 +29,7 @@ CREATE TABLE `posts`(
 
 CREATE TABLE `comments`(
     `comment_id` INT AUTO_INCREMENT PRIMARY KEY,
-    `username` INT NOT NULL,
+    `username` varchar(255) NOT NULL,
     `post_id` INT NOT NULL,
     `content` TEXT NOT NULL,
     `comment_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
