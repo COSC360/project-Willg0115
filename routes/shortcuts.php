@@ -21,7 +21,11 @@
         $stmt->execute();
         if($stmt->rowCount()>0){
             $result = $stmt->fetch();
-            return $result['role']==='admin';
+            if($result["role"]=="admin"){
+                return true;
+            }else{
+                return false;
+            }
         }else{
             return false;
         }
