@@ -17,11 +17,6 @@
     position: absolute;
     bottom: 0;
 }
-.popular form{
-    padding: .1em .7em .1em .7em;
-    border-radius: 20px;
-    border: 1px solid black;
-}
 .post {
     margin-top:1em;
     margin-bottom: 1em;
@@ -29,10 +24,7 @@
     border-radius: 0.5em;
     padding: 0.5em
 }
-.dumping, .popular form, .post {
+.dumping, .post {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-}
-fieldset {
-    border: none;
 }

@@ -33,10 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['p
             $stmt->bindValue(4, $lastname);
             $stmt->bindValue(5, $email);
             $stmt->execute();
-
+            $pdo = null;
             header('Location: login.html');
             exit;
         }else{
+            $pdo = null;
             echo "User already exists";
             header('Location: create.html');
             exit;

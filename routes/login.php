@@ -22,16 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['p
         $stmt->execute();
         
         if($stmt->rowCount()>0){
-            $_SESSION['user_id'] = $stmt->fetch()[$userId];
-        
-            header('Location: home.html');
+            $_SESSION['user_id'] = $stmt->fetch()[$user_Id];
+            $pdo = null;
+            header('Location: home.php');
             exit;
         } else {
             $_SESSION['error_message'] = 'Invalid email or password.';
+            $pdo = null;
             header('Location: login.php');
             exit;
         }
-        $pdo = null;
+        
     }catch (PDOException $e){
           die($e->getMessage());
     }
