@@ -5,8 +5,8 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject'], $_POST['content'], $_POST['loctype'])) {
     if(isset($_FILES['postimage'])){
-        $targetDir = "uploads/";
-
+        //$targetDir = "https://cosc360.ok.ubc.ca/wgarbutt/uploads/";
+        $targetDir = "../uploads/";
         if (!is_dir($targetDir) ) { 
             mkdir($targetDir, 0755, true);   
         }
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject'], $_POST['co
             $stmt->bindValue(2, $title);
             $stmt->bindValue(3, $type);
             $stmt->bindValue(4, $content);
-            $stmt->bindValue(5, basename($_FILES["postimage"]["name"]));
+            $stmt->bindValue(5, $targetFile);
             $stmt->execute();
         }
         else {
