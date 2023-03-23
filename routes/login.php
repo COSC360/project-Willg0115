@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['p
     session_start();
 
     $username = $_POST['username'];
-    $password = ($_POST['password']);
+    $password = $_POST['password'];
 
     //nee to update with our database
     $host = "localhost";
