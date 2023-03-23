@@ -66,13 +66,19 @@ header nav a{
     list-style:none;
     font-size: 20px;
 }
-.menu li{
+.menu ul li{
     text-decoration: none; 
-    background-color: #AA7F39;
+    /* background-color: #AA7F39; */
     vertical-align: center;
     text-align: left;
     margin: 1em 1em 1em 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+
+
+
 .main{
     position: relative;
     top:80px;

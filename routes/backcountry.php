@@ -8,32 +8,15 @@ session_start();
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/home.css">
 </head>
-<header>
-    <div class="header">
-        <a href="home.html" class="logo"><img src="../layout_and_logic_docs/Project_logo_roughdraft.png" width="150", height="80"></a>
-        <nav>
-            <form action="get" method="">
-                <input id="search" type="search" placeholder="Search Ski-it">
-            </form>
-            <ul>
-                <li><a class="home" href="home.html">Home</a></li>
-                <?php
-                if(isset($_SESSION['user_id'])){
-                    echo "<li><a class=\"login\" href=\"account.html\">My Account</a></li>";
-                }else{
-                    echo "<li><a class=\"login\" href=\"login.html\">Log In</a></li>";
-                }
-                ?>
-            </ul>
-        </nav>
-    </div>
-</header>
+<?php
+    include 'headers/header1.php';
+?>
 <body>
     <div class="menu">
         <ul>
-            <li><a href='home.php'>Popular</a></li>
-            <li><a href='resort.php'>Resort</a></li>
-            <li><a href='backcountry.php'>Backcountry</a></li>
+            <li class="navmenu"><a href='home.php'>Popular</a></li>
+            <li class="navmenu"><a href='resort.php'>Resort</a></li>
+            <li class="navmenu"><a href='backcountry.php'>Backcountry</a></li>
         </ul>
     </div>
     <div class="main">

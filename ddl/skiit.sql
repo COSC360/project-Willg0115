@@ -12,7 +12,8 @@ CREATE TABLE `users`(
     `registration_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `profile_img` VARCHAR(255) DEFAULT NULL,
     `thumbnail_img` VARCHAR(255) DEFAULT NULL,
-    `role` ENUM('user', 'admin') NOT NULL DEFAULT 'user'
+    `role` ENUM('user', 'admin') NOT NULL DEFAULT 'user',
+    `state` ENUM('able', 'disable') NOT NULL DEFAULT 'able' 
 );
 
 CREATE TABLE `posts`(

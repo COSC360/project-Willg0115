@@ -1,0 +1,45 @@
+.section {
+    margin-bottom: 30px;
+}
+table{
+    width: 100%;
+    border: 1px solid black;
+}
+td, th{
+    border: 1px solid black;
+    border-collapse:separate;
+    text-align: center;
+}
+.navadmin{
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+    display:inline-block;
+}
+  
+.navadmin:hover {
+    font-weight:bold;
+}
+
+/* .section form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.section input[type="text"] {
+    margin-right: 5px;
+}
+
+.section button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+} */
