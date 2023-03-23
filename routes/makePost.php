@@ -21,10 +21,8 @@
 <body>
     <div class="menu">
         <ul>
-            <li>Account info</li>
-            <li>Find People</li>
-            <li>Following</li>
-            <li>My Posts</li>
+            <li><a href='accountinfo.php'>Account info</a></li>
+            <li><a href='account.php'>My Posts</a></li>
             <li><a id="makePost">New Post</a></li>
         </ul>
     </div>
@@ -41,7 +39,7 @@
                 <input type="radio" name="loctype" id="backcountry">
                 <label for="postimage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Image File</label>
                 <input type="file" name="postimage" accept="image/png, image/gif, image/jpeg" />
-                <textarea placeholder="content"></textarea>
+                <textarea placeholder="content" name="content" required></textarea>
                 <button type="submit" class="btn">Post</button>
                 <a href="account.html">Cancel</a>
             </form>
