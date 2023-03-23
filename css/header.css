@@ -90,7 +90,6 @@ header nav a{
     font-weight:bold;
 }
 
-
 .main{
     position: relative;
     top:80px;
@@ -100,6 +99,12 @@ header nav a{
     margin: 1em 1em 1em 1em;
     padding: 0 1.5em 0 1.5em;
     width: 80%;
+}
+.boackgroundlogo{
+    position: fixed;
+    top:80px;
+    left:200px;
+    z-index: -99;
 }
 
 
