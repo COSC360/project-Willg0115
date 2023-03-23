@@ -58,9 +58,9 @@
 <body>
     <div class="menu">
         <ul>
-            <li><a href='home.php'>Popular</a></li>
-            <li><a href='resort.php'>Resort</a></li>
-            <li><a href='backcountry.php'>Backcountry</a></li>
+            <li class="navmenu"><a href='home.php'>Popular</a></li>
+            <li class="navmenu"><a href='resort.php'>Resort</a></li>
+            <li class="navmenu"><a href='backcountry.php'>Backcountry</a></li>
         </ul>
     </div>
     <div class="main">

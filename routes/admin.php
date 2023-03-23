@@ -7,6 +7,37 @@
         <link rel="stylesheet" href="../css/header.css">
         <script src="../script/admin.js"></script>
     </head>
+    <style>
+        #adminsearch {
+            width: 100%;
+            max-width: 600px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f8f8f8;
+            transition: all 0.3s;
+        }
+        #adminsearch:focus {
+            outline: none;
+            border: 1px solid #4a8dff;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(74, 141, 255, 0.5);
+        }
+        #searchbutton{
+            font-size: 16px;
+            padding: 12px 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        #searchbutton:hover{
+            outline: none;
+            border: 1px solid #4a8dff;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(74, 141, 255, 0.5);
+        }
+
+    </style>
     <body>
     <?php include 'headers/header2.php'; ?>
     <div class="menu">
@@ -19,8 +50,8 @@
         <div id="searchUsers" class="section">
             <h2>Search Users</h2>
             <form action='admin.php' method='POST'>
-                <input type="text" placeholder="Search by name, email, or post" name="search" id="searchUser">
-                <button type="submit">Search</button>
+                <input type="text" placeholder="Search by name, email, or post" name="search" id="adminsearch">
+                <button id = "searchbutton" type="submit">Search</button>
             </form>
                 <?php
                     include 'shortcuts.php';
