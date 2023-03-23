@@ -15,28 +15,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['p
     try{
         $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $pass);
 
-        $query = "SELECT username, password FROM users WHERE username = ? and password = ?";
+        $query = "SELECT username, password, state FROM users WHERE username = ? and password = ?";
         $stmt = $pdo->prepare($query);
         $stmt->bindValue(1, $username);
         $stmt->bindValue(2, $password);
         $stmt->execute();
         
         if($stmt->rowCount()>0){
-            $_SESSION['username'] = $username;
-            $pdo = null;
-            header('Location: home.php');
-            exit;
+            $user = $stmt->fetch();
+            if ($user['state'] === 'disable') {
+                $_SESSION['error_message'] = 'Your account has been disabled.';
+                $pdo = null;
+                header('Location: ban.php');
+                exit;
+            }else{
+                $_SESSION['username'] = $username;
+                $pdo = null;
+                header('Location: home.php');
+                exit;
+            }
         } else {
             $_SESSION['error_message'] = 'Invalid email or password.';
             $pdo = null;
-            header('Location: login.php');
+            header('Location: login.html');
             exit;
         }
         
     }catch (PDOException $e){
           die($e->getMessage());
     }
-} else {
+}    else {
     echo "Invalid request or missing parameters.";
 }
 ?>

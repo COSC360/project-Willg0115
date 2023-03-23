@@ -9,9 +9,9 @@
 <body>
     <div class="menu">
         <ul>
-            <li><a href='accountinfo.php'>Account info</a></li>
-            <li><a href='account.php'>My Posts</a></li>
-            <li><a id="makePost" href="makePost.php">New Post</a></li>
+            <li class="navmenu"><a href='accountinfo.php'>Account info</a></li>
+            <li class="navmenu"><a href='account.php'>My Posts</a></li>
+            <li class="navmenu"><a id="makePost" href="makePost.php">New Post</a></li>
         </ul>
     </div>
     <div class="main">
