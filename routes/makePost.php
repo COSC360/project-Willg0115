@@ -11,7 +11,7 @@
         <ul>
             <li><a href='accountinfo.php'>Account info</a></li>
             <li><a href='account.php'>My Posts</a></li>
-            <li><a id="makePost">New Post</a></li>
+            <li><a>New Post</a></li>
         </ul>
     </div>
     <div class="main">

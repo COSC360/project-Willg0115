@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
 <header>
     <?php session_start();?>
     <div class="header">

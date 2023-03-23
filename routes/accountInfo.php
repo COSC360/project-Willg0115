@@ -15,6 +15,7 @@
         </ul>
     </div>
     <div class="main">
+        <div id="accountcard">
         <?php
             include 'shortcuts.php';
             session_start();
@@ -34,6 +35,10 @@
              
         ?>
         <form id="createForm" action="editAccount.php" method="post">
+            <h2>Profile Picture</h2>
+            <input type="file" name="imgprofile" accept="../profile_img/*">
+            <h2>Thumnail</h2>
+            <input type="file" name="thumbnail" accept="../thumbnail/*">
             <h2>First Name</h2>
             <input class="required" type="text" <?php echo "value='$firstname'"; ?> name="firstName">
             <h2>Last Name</h2>
@@ -42,8 +47,10 @@
             <input class="required" type="text" <?php echo "value='$username'"; ?> name="username">
             <h2>Email</h2>
             <input class="required" type="email" <?php echo "value='$email'"; ?> name="email">
+            
 
             <button type="submit" id="register">Update Info</button>
-        </form>       
+        </form>
+        </div>       
     </div>
 </body>
