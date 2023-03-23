@@ -136,7 +136,7 @@
                         echo "<p ><button id='like-button' class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
                         echo "<p><form action='admin/deletepost.php' method='POST'>";
                         echo "<input type='hidden' name='post_id' value='" . $post['post_id'] . "'>";
-                        echo "<button type='submit' id='delete-button'>Delete</button>";
+                        echo "<input type='submit' id='delete-button' value='Delete'>";
                         echo "</form></p>";
                         echo "</div>";
                     }

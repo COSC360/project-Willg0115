@@ -52,7 +52,7 @@
                         }
                         echo "<p>" . $post['content'] . "</p>";
                         echo "<p>";
-                        if(isset($_SEESION('username'))){
+                        if($_SESSION('username')){
                             echo "<form action=\"comment.php\" method=\"post\">";
                             echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
                             echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";

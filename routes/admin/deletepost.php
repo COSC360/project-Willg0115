@@ -1,14 +1,14 @@
 <?php
-    include 'shortcuts.php';
+    include '../shortcuts.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['post_id'])) {
         $post_id = $_POST['post_id'];
     
         $pdo = connectToDatabase();
         
-        $sql = "DELETE FROM posts WHERE post_id = :post_id";
+        $sql = "DELETE FROM posts WHERE post_id = ?";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        $stmt->bindValue(1, $post_id);
         $stmt->execute();
     
         $pdo = null;
