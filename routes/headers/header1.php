@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<head><link rel="stylesheet" href="../css/header.css"></head>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
 <header>
     <?php session_start();?>
     <div class="header">

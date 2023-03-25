@@ -37,5 +37,53 @@
 .navmenu:hover {
     font-weight:bold;
 }
+#accountcard {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+button#register {
+    font-size: 16px;
+    padding: 12px 20px;
+    background-color: #4a8dff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button#register:hover {
+    background-color: #3c7adb;
+}
+
   
  

@@ -1,8 +1,5 @@
 <?php
 if (isset($_POST['username']) && isset($_POST['state'])) {
-    // echo "Received data:<br>";
-    // echo "Username: " . $_POST["username"] . "<br>";
-    // echo "State: " . $_POST["state"] . "<br>";
     include '../shortcuts.php';
     $pdo = connectToDatabase();
     $username = $_POST["username"];
