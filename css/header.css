@@ -96,12 +96,18 @@ header nav a{
     padding: 0 1.5em 0 1.5em;
     width: 80%;
 }
-.boackgroundlogo{
+#backgroundlogo{
     position: fixed;
     top:80px;
     left:200px;
-    z-index: -99;
+    size: 80%;
+    background-image: url(l../layout_and_logic_docs/Project_logo_roughdraft.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
 }
+    
+
 
 
 

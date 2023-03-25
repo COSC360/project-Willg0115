@@ -5,7 +5,16 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/home.css">
 </head>
-<?php include 'headers/header1.php'; ?>
+<?php include 'headers/header1.php'; 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
+        echo "<form action='comment.php' method='post'>";
+        echo "<input type='hidden' name='post_id' value='".$_POST['post_id']."'>";
+        echo "<textarea name='comment_content' placeholder='comment' required></textarea>";
+        echo "<button type='submit'>Submit</button>";
+        echo "<button type='submit' formaction='resort.php'>Cancel</button>";
+        echo "</form>";    
+    }  
+?>
 <body>
     <div class="menu">
         <ul>
@@ -34,48 +43,58 @@
         <div class="posts">
             <h2>Resort Posts</h2>
             <?php
-                include 'shortcuts.php';
-                $pdo = connectToDatabase();
-                
-                $query = "SELECT * FROM posts WHERE type = 'resort' ORDER BY likes DESC";
-                $stmt = $pdo->prepare($query);
-                $stmt->execute();
-            
-                if ($stmt->rowCount() > 0) {
-                    while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<div class='post'>";
-                        echo "<h2>" . $post['username'] . "</h2>";
-                        echo "<h3>" . $post['title'] . "</h3>";
-                        echo "<h4>" . $post['type'] . "</h4>";
-                        if (!empty($post['image'])) {
-                            echo "<img style='display: block;' src='" . $post['image'] . "' alt='" . $post['title'] . "'>";
-                        }
-                        echo "<p>" . $post['content'] . "</p>";
-                        echo "<p>";
-                        if(isset($_SEESION('username'))){
-                            echo "<form action=\"comment.php\" method=\"post\">";
-                            echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
-                            echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
-                            echo "</form";
-                        }    
+                $host = "localhost";
+                $user = "webuser";
+                $password = "P@ssw0rd";
+                $database = "skiit";
+
+                $minLikes = 10;
+
+                try {
+                    $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $password);
+                    
+                    $query = "SELECT * FROM posts WHERE type = 'resort' ORDER BY likes DESC";
+                    $stmt = $pdo->prepare($query);
+                    $stmt->execute();
                         
-                        echo "<button class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
-                        $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
-                        $stmt2 = $pdo->prepare($query);
-                        $stmt2->bindValue(1, $post['post_id']);
-                        $stmt2->execute();
-                        if ($stmt2->rowCount() > 0) {
-                            while ($comment = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<div class ='post'>";
-                                echo "<h3>" . $comment['username'] . "</h3>";
-                                echo "<p>" . $comment['content'] . "</p>";
-                                echo "</div>";
+                    if ($stmt->rowCount() > 0) {
+                        while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            echo "<div class='post'>";
+                            echo "<h2>" . $post['username'] . "</h2>";
+                            echo "<h3>" . $post['title'] . "</h3>";
+                            echo "<h4>" . $post['type'] . "</h4>";
+                            if (!empty($post['image'])) {
+                                echo "<img style='display: block;' src='" . $post['image'] . "' alt='" . $post['title'] . "'>";
                             }
+                            echo "<p>" . $post['content'] . "</p>";
+                            echo "<p>";
+                            if(isset($_SEESION('username'))){
+                                echo "<form action=\"comment.php\" method=\"post\">";
+                                echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
+                                echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
+                                echo "</form";
+                            }    
+                            echo "<button class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
+                            $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
+                            $stmt2 = $pdo->prepare($query);
+                            $stmt2->bindValue(1, $post['post_id']);
+                            $stmt2->execute();
+                            if ($stmt2->rowCount() > 0) {
+                                while ($comment = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+                                    echo "<div class ='post'>";
+                                    echo "<h3>" . $comment['username'] . "</h3>";
+                                    echo "<p>" . $comment['content'] . "</p>";
+                                    echo "</div>";
+                                }
+                            }
+                            echo "</div>";
                         }
-                        echo "</div>";
                     }
-                }  
-                $pdo = null;
+                    $pdo = null;
+                } catch (PDOException $e) {
+                    die($e->getMessage());
+                } 
+                
             ?>
         </div>
     </div>

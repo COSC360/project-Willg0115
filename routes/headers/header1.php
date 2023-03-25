@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<head><link rel="stylesheet" href="../css/header.css"></head>
 <header>
     <?php session_start();?>
     <div class="header">
@@ -28,7 +29,6 @@
             </ul>
         </nav>
     </div>
-    <div class='main'>
-        <img class='background-logo' href="../../layout_and_logic_docs/Project_logo_roughdraft.png">
-    </div>
+    
 </header>
+<div id="backgroundlogo"></div>
