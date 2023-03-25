@@ -30,8 +30,8 @@ error_reporting(E_ALL);
                 echo "<input type='hidden' name='post_id' value='".$_POST['post_id']."'>";
                 echo "<textarea id='comment_content' name='comment_content' placeholder='comment' required></textarea><br>";
                 echo "<button type='submit'>Submit</button>";
-                echo "<button type='submit' formaction='resort.php'>Cancel</button>";
-                echo "</form></div>";    
+                echo "</form>";
+                echo "<a  href='resort.php'>Cancel</a></div>";        
             }  else
         echo "<div class='dumpings'>
             <h2>Today's Dumpings</h2>
