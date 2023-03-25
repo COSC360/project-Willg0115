@@ -4,7 +4,7 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject'], $_POST['content'], $_POST['loctype'])) {
-    if(isset($_FILES['postimage'])){
+    if(!empty($_FILES['postimage'])){//if stmt not working
         //$targetDir = "https://cosc360.ok.ubc.ca/wgarbutt/uploads/";
         $targetDir = "../uploads/";
         if (!is_dir($targetDir) ) { 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject'], $_POST['co
     include 'shortcuts.php';
         $pdo = connectToDatabase();
 
-        if(isset($_FILES['postimage'])){
+        if(isset($_FILES['postimage'])){//if not working
             $sql = "INSERT INTO posts (username, title, type, content, post_img) VALUES (?,?,?,?,?)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(1, $username);

@@ -110,6 +110,10 @@ header nav a{
     background-position: left;
     background-size: contain;
 }
+
+#comment_content{
+    width: 80%;
+}
     
 
 
