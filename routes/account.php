@@ -9,7 +9,7 @@
 <body>
     <div class="menu">
         <ul>
-            <li class="navmenu"><a href='accountinfo.php'>Account info</a></li>
+            <li class="navmenu"><a href='accountInfo.php'>Account info</a></li>
             <li class="navmenu"><a href='account.php'>My Posts</a></li>
             <li class="navmenu"><a id="makePost" href="makePost.php">New Post</a></li>
         </ul>
