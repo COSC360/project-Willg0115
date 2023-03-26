@@ -71,8 +71,8 @@ error_reporting(E_ALL);
                             echo "<h2>" . $post['username'] . "</h2>";
                             echo "<h3>" . $post['title'] . "</h3>";
                             echo "<h4>" . $post['type'] . "</h4>";
-                            if (!empty($post['image'])) {
-                                echo "<img style='display: block;' src='" . $post['image'] . "' alt='" . $post['title'] . "'>";
+                            if (!empty($post['post_img'])) {
+                                echo "<img style='display: block;' src='../uploads/" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
                             }
                             echo "<p>" . $post['content'] . "</p>";
                             echo "<p>";

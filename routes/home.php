@@ -118,7 +118,7 @@
                             echo "<h3>" . $post['title'] . "</h3>";
                             echo "<h4>" . $post['type'] . "</h4>";
                             if (!empty($post['post_img'])) {
-                                echo "<img src='" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
+                                echo "<img src='../uploads/" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
                             }
                             echo "<p>" . $post['content'] . "</p>";
                             if(isset($_SESSION['username'])){

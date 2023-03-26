@@ -36,9 +36,7 @@
         ?>
         <form id="createForm" action="editAccount.php" method="post">
             <h2>Profile Picture</h2>
-            <input type="file" name="imgprofile" accept="../profile_img/*">
-            <h2>Thumnail</h2>
-            <input type="file" name="thumbnail" accept="../thumbnail/*">
+            <input type="file" name="imgprofile" accept="image/png, image/gif, image/jpeg">
             <h2>First Name</h2>
             <input class="required" type="text" <?php echo "value='$firstname'"; ?> name="firstName">
             <h2>Last Name</h2>
