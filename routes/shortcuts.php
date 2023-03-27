@@ -1,9 +1,9 @@
 <?php
     function connectToDatabase() {
-        $host = "localhost";
-        $database = "skiit";
-        $user = "webuser";
-        $password = "P@ssw0rd";
+        $host = "cosc360.ok.ubc.ca";
+        $database = "db_63271324";
+        $user = "63271324";
+        $password = "63271324";
         try{
             $pdo = new PDO("mysql:host=$host;dbname=$database",$user, $password);
         }

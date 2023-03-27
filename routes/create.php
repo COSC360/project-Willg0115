@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['p
     $email = $_POST['email'];
 
     //nee to update with our database maybe
-    $host = "localhost";
-    $user = "webuser";
-    $pass = "P@ssw0rd";
-    $database = "skiit";
+    $host = "cosc360.ok.ubc.ca";
+    $user = "63271324";
+    $pass = "63271324";
+    $database = "db_63271324";
     try{
         $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $pass);
 

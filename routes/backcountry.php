@@ -53,10 +53,10 @@ error_reporting(E_ALL);
             <h2>Backcountry Posts</h2>";
             ?>
             <?php
-                $host = "localhost";
-                $user = "webuser";
-                $password = "P@ssw0rd";
-                $database = "skiit";
+                $host = "cosc360.ok.ubc.ca";
+                $user = "63271324";
+                $password = "63271324";
+                $database = "db_63271324";
 
                 try {
                     $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $password);

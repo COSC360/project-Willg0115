@@ -96,10 +96,10 @@
             <h2>Popular Posts</h2>";
             ?>
             <?php
-                $host = "localhost";
-                $user = "webuser";
-                $password = "P@ssw0rd";
-                $database = "skiit";
+                $host = "cosc360.ok.ubc.ca";
+                $user = "63271324";
+                $password = "63271324";
+                $database = "db_63271324";
 
                 $minLikes = 10;
 
