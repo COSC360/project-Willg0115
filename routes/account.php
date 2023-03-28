@@ -30,7 +30,7 @@
                     echo "<h2>" . $post['title'] . "</h2>";
                     echo "<h3>" . $post['type'] . "</h3>";
                     if (!empty($post['post_img'])) {
-                        echo "<img src='" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
+                        echo "<img src='../uploads/" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
                     }
                     echo "<p>" . $post['content'] . "</p>";
                     echo "<p><button class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
