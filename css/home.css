@@ -18,6 +18,7 @@
     bottom: 0;
 }
 .post {
+    position: relative;
     margin-top:1em;
     margin-bottom: 1em;
     border: 1px solid black;
@@ -38,9 +39,27 @@
     font-weight:bold;
 }
 .post img{
-    max-width: 100%; /* Limit the image width to the container width */
-    height: auto; /* Maintain the aspect ratio */
-    border: 1px solid #ccc; /* Add a border to the image */
-    border-radius: 5px; /* Add rounded corners */
+    max-width: 100%;
+    height: auto; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
     margin: 10px 0; 
+}
+
+.vote-buttons {
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vote-button {
+    font-size: 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 0 0 3px #000;
+}
+.post-content {
+    margin-left: 50px;
 }

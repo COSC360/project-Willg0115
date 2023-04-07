@@ -84,6 +84,12 @@ button#register {
 button#register:hover {
     background-color: #3c7adb;
 }
-
+.post img{
+    max-width: 100%;
+    height: auto; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0; 
+}
   
  

@@ -4,6 +4,7 @@
     <title>Ski-It Project</title>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/home.css">
+    <script type="text/javascript" src="../script/votes.js"></script>
 </head>
 <?php include 'headers/header1.php'; ?>
 <style>
@@ -107,6 +108,12 @@
                 if ($stmt->rowCount() > 0) {
                     while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         echo "<div class='post'>";
+                        echo "<div class='vote-buttons'>";
+                        echo "<span class='vote-button upvote' data-post-id='".$post['post_id']."'>&uarr;</span>";
+                        echo "<span class='vote-count'>" . $post['likes'] . "</span>";
+                        echo "<span class='vote-button downvote' data-post-id='".$post['post_id']."'>&darr;</span>";
+                        echo "</div>";
+                        echo "<div class='post-content'>";
                         echo "<h2>" . $post['username'] . "</h2>";
                         echo "<h3>" . $post['title'] . "</h3>";
                         echo "<h4>" . $post['type'] . "</h4>";
@@ -116,11 +123,13 @@
                         echo "<p>" . $post['content'] . "</p>";
                         if(isset($_SESSION['username'])){
                             echo "<form action=\"resort.php\" method=\"post\">";
-                            echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
-                            echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
+                                echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
+                                echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
                             echo "</form>";
-                        }    
-                        echo "<p><button class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
+                        }
+                        echo "</div>";
+                        
+
                         $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
                         $stmt2 = $pdo->prepare($query);
                         $stmt2->bindValue(1, $post['post_id']);
