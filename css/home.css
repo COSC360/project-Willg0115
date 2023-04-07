@@ -37,3 +37,10 @@
 .navmenu:hover {
     font-weight:bold;
 }
+.post img{
+    max-width: 100%; /* Limit the image width to the container width */
+    height: auto; /* Maintain the aspect ratio */
+    border: 1px solid #ccc; /* Add a border to the image */
+    border-radius: 5px; /* Add rounded corners */
+    margin: 10px 0; 
+}
