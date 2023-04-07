@@ -58,7 +58,7 @@ header nav a{
 }
 .menu{
     position: fixed;
-    overflow: scroll;
+    overflow: auto;
     top:80px;
     left:0;
     padding: 0 1em 0 1em;

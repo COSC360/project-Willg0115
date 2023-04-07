@@ -10,7 +10,7 @@
     transition: 0.3s;
 }
 .post-popup {
-    overflow: scroll;
+    overflow: auto;
     border: 1px solid black;
     border-radius: 0.5em;
     opacity: 1;

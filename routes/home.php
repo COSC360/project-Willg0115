@@ -96,7 +96,7 @@
             <h2>Popular Posts</h2>";
             ?>
             <?php
-                include('dbConnetion.php');
+                include('dbConnection.php');
                 $minLikes = 10;
                 
                 $query = "SELECT * FROM posts WHERE likes >= ? ORDER BY likes DESC";
