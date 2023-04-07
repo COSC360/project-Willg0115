@@ -105,7 +105,7 @@ td, th{
 #delete-button:hover{
     background-color: #e53935;
 }
-.post img{
+#post img{
     max-width: 100%;
     height: auto; 
     border: 1px solid #ccc;
