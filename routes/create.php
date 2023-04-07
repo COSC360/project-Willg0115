@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['p
         $stmt->bindValue(5, $email);
         $stmt->execute();
         $pdo = null;
-        header('Location: login.html');
+        header('Location: login.php');
         exit;
     }else{
         $pdo = null;

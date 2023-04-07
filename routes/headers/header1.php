@@ -25,7 +25,7 @@
                     if(isAdmin($_SESSION['username'])){
                     }
                 }else{
-                    echo "<li><a class=\"login\" href=\"login.html\">Log In</a></li>";
+                    echo "<li><a class=\"login\" href=\"login.php\">Log In</a></li>";
                 }
                 ?>
             </ul>
