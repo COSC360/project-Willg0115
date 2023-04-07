@@ -5,7 +5,9 @@
         <title>Admin Dashboard</title>
         <link rel="stylesheet" href="../css/admin.css">
         <link rel="stylesheet" href="../css/header.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="../script/admin.js"></script>
+        
     </head>
     <style>
         .adminsearch {
@@ -46,6 +48,7 @@
         <ul>
             <li class="navadmin" onclick="showSection('searchUsers')">Manage Users</li>
             <li class="navadmin" onclick="showSection('managePosts')">Manage Posts</li>
+            <li class="navadmin" onclick="showSection('userCharts')">User Charts</li>
         </ul>
     </div>
     <div class="main">
@@ -147,6 +150,12 @@
                 }
                 $stmt = null;
             ?>
+        </div>
+        <div id="userCharts" class="section" style="display:none;">
+            <h2>User Charts</h2>
+            <div id="chart_div"><h3></h3></div>
+            <div id="postChart"></div>
+            <div id="commentChart"></div>
         </div>
     </div>
 </body>

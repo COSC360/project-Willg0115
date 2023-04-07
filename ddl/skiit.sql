@@ -43,6 +43,6 @@ CREATE TABLE `comments`(
 INSERT INTO users (username, password, firstName, lastName, email, role) VALUES('alrick', MD5('alrick'), 'alrick', 'vincent', 'alrick.vincent@gmail.com', 'admin');
 INSERT INTO users (username, password, firstName, lastName, email, role) VALUES('will', MD5('will'), 'will', 'garbutt', 'will.dkg@gmail.com', 'admin');
 -- inser test useR
-INSERT INTO users(username, password, firstName, lastName, email, role) VALUES('test', 'test', 'test', 'test', 'will.dkg@gmail.com', 'user');
+INSERT INTO users(username, password, firstName, lastName, email, role) VALUES('test', MD5('test'), 'test', 'test', 'will.dkg@gmail.com', 'user');
 -- insert test post
 INSERT INTO posts(username, title, content, type) VALUES ('test', 'test post', 'This is a test post to try functionalities and display', 'backcountry');
