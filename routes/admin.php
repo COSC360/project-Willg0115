@@ -136,7 +136,7 @@
                         echo "<h2 id='post-title'>" . $post['title'] . "</h2>";
                         echo "<h3 id='post-info'>" . $post['type'] . "</h3>";
                         if (!empty($post['post_img'])) {
-                            echo "<img src='" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
+                            echo "<img src='../uploads/" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
                         }
                         echo "<p id='post-content'>" . $post['content'] . "</p>";
                         echo "<p ><button id='like-button' class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";

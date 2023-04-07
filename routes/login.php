@@ -33,7 +33,7 @@
             </tr>
         </form>
             <tr>
-                <td colspan="2"><a href="create.html"><button id="signUp">Sign Up</button></a></td>
+                <td colspan="2"><a href="create.php"><button id="signUp">Sign Up</button></a></td>
             </tr>
     </table>
 </body>

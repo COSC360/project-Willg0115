@@ -1,43 +1,51 @@
-<!DOCTYPE html>
-<?php
-session_start();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['email'])) {
-    
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
-    $firstname = $_POST['firstName'];
-    $lastname = $_POST['lastName'];
-    $email = $_POST['email'];
-
-    include('dbConnection.php');
-
-    $sql = "SELECT username, email FROM users WHERE username = ? or email = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(1, $username);
-    $stmt->bindValue(2, $email);
-    $stmt->execute();
-    
-    if($stmt->rowCount() == 0){
-        $sql = "INSERT INTO users (username, password, firstName, lastName, email) VALUES (?,?,?,?,?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(1, $username);
-        $stmt->bindValue(2, $password);
-        $stmt->bindValue(3, $firstname);
-        $stmt->bindValue(4, $lastname);
-        $stmt->bindValue(5, $email);
-        $stmt->execute();
-        $pdo = null;
-        header('Location: login.php');
-        exit;
-    }else{
-        $pdo = null;
-        echo "User already exists";
-        header('Location: create.html');
-        exit;
-    }
-    
-} else {
-    echo "Invalid request or missing parameters.";
-}
-?>
+<!DOCTYPE HTML>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Create Account Page</title>
+    <link rel="stylesheet" href="../css/create.css">
+    <script type="text/javascript" src="../script/create.js"></script>
+</head>
+<header>
+    <div>
+        <a href="home.php"><img src="../layout_and_logic_docs/Project_logo_roughdraft.png"/></a>
+    </div>
+</header>
+<body>
+    <form id="createForm" action="processcreate.php" method="post">
+        <table>
+            <tr>
+                <td colspan="2"><?php 
+                    session_start();
+                    if(isset($_SESSION['error_message'])){
+                        echo "<h4 style='color: red; '>" . $_SESSION['error_message'] . "</h4>";
+                    }
+                ?></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input class="required" type="text" placeholder="First Name" name="firstName"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input class="required" type="text" placeholder="Last Name" name="lastName"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input class="required" type="text" placeholder="Username" name="username"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input class="required" type="email" placeholder="Email" name="email"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input class="required" type="password" name="password" placeholder="Password"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input class="required" type="password" name="confirm" placeholder="Confirm Password"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><button type="submit" id="register">Register</button></td>
+            </tr>
+            <tr>
+                <td>Already Have an account? </td>
+                <td colspan="2"><a href='login.php' id="register">Login</a></td>
+            </tr>
+        </table>
+    </form>       
+</body>

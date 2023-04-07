@@ -108,11 +108,13 @@
                 if ($stmt->rowCount() > 0) {
                     while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         echo "<div class='post'>";
+                        if(isset($_SESSION['username'])){
                         echo "<div class='vote-buttons'>";
                         echo "<span class='vote-button upvote' data-post-id='".$post['post_id']."'>&uarr;</span>";
                         echo "<span class='vote-count'>" . $post['likes'] . "</span>";
                         echo "<span class='vote-button downvote' data-post-id='".$post['post_id']."'>&darr;</span>";
                         echo "</div>";
+                        }
                         echo "<div class='post-content'>";
                         echo "<h2>" . $post['username'] . "</h2>";
                         echo "<h3>" . $post['title'] . "</h3>";
