@@ -96,60 +96,50 @@
             <h2>Popular Posts</h2>";
             ?>
             <?php
-                $host = "cosc360.ok.ubc.ca";
-                $user = "63271324";
-                $password = "63271324";
-                $database = "db_63271324";
-
+                include('dbConnetion.php');
                 $minLikes = 10;
-
-                try {
-                    $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $password);
                 
-                    $query = "SELECT * FROM posts WHERE likes >= ? ORDER BY likes DESC";
-                    $stmt = $pdo->prepare($query);
-                    $stmt->bindValue(1, $minLikes);
-                    $stmt->execute();
-                
-                    if ($stmt->rowCount() > 0) {
-                        while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            echo "<div class='post'>";
-                            echo "<h2>" . $post['username'] . "</h2>";
-                            echo "<h3>" . $post['title'] . "</h3>";
-                            echo "<h4>" . $post['type'] . "</h4>";
-                            if (!empty($post['post_img'])) {
-                                echo "<img src='../uploads/" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
-                            }
-                            echo "<p>" . $post['content'] . "</p>";
-                            if(isset($_SESSION['username'])){
-                                echo "<form action=\"resort.php\" method=\"post\">";
-                                echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
-                                echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
-                                echo "</form>";
-                            }    
-                            echo "<p><button class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
-
-                            $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
-                            $stmt2 = $pdo->prepare($query);
-                            $stmt2->bindValue(1, $post['post_id']);
-                            $stmt2->execute();
-                            if ($stmt2->rowCount() > 0) {
-                                while ($comment = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-                                    echo "<div class ='post'>";
-                                    echo "<h3>" . $comment['username'] . "</h3>";
-                                    echo "<p>" . $comment['content'] . "</p>";
-                                    echo "</div>";
-                                }
-                            }
-                            echo "</div>";
+                $query = "SELECT * FROM posts WHERE likes >= ? ORDER BY likes DESC";
+                $stmt = $pdo->prepare($query);
+                $stmt->bindValue(1, $minLikes);
+                $stmt->execute();
+            
+                if ($stmt->rowCount() > 0) {
+                    while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<div class='post'>";
+                        echo "<h2>" . $post['username'] . "</h2>";
+                        echo "<h3>" . $post['title'] . "</h3>";
+                        echo "<h4>" . $post['type'] . "</h4>";
+                        if (!empty($post['post_img'])) {
+                            echo "<img src='../uploads/" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
                         }
-                    } else {
-                        echo "No posts found with a minimum of $minLikes likes.";
+                        echo "<p>" . $post['content'] . "</p>";
+                        if(isset($_SESSION['username'])){
+                            echo "<form action=\"resort.php\" method=\"post\">";
+                            echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
+                            echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
+                            echo "</form>";
+                        }    
+                        echo "<p><button class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
+                        $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
+                        $stmt2 = $pdo->prepare($query);
+                        $stmt2->bindValue(1, $post['post_id']);
+                        $stmt2->execute();
+                        if ($stmt2->rowCount() > 0) {
+                            while ($comment = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<div class ='post'>";
+                                echo "<h3>" . $comment['username'] . "</h3>";
+                                echo "<p>" . $comment['content'] . "</p>";
+                                echo "</div>";
+                            }
+                        }
+                        echo "</div>";
                     }
-                    $pdo = null;
-                } catch (PDOException $e) {
-                    die($e->getMessage());
+                } else {
+                    echo "No posts found with a minimum of $minLikes likes.";
                 }
+                $pdo = null;
+            
             ?>
         </div>
     </div>

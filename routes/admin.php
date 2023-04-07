@@ -41,7 +41,7 @@
     <?php    
     ?>
     <body>
-    <?php include 'headers/header2.php'; ?>
+    <?php include 'headers/header2.php';    ?>
     <div class="menu">
         <ul>
             <li class="navadmin" onclick="showSection('searchUsers')">Manage Users</li>
@@ -56,8 +56,8 @@
                 <button class = "searchbutton" type="submit">Search</button>
             </form>
                 <?php
-                    include 'shortcuts.php';
-                    $pdo = connectToDatabase();
+                    include('dbConnection.php');
+
                     if($_SERVER['REQUEST_METHOD']=='POST' and isset($_POST['search'])){
                         echo "<br><h2>Results of search:</h2><br>";
                         $sql = "SELECT u.* FROM users u LEFT JOIN posts ON u.username=posts.username WHERE u.username LIKE ? OR email LIKE ? OR content LIKE ? OR title LIKE ?";
@@ -95,7 +95,7 @@
                             echo "</table>";
                             echo "<a href='admin.php'><h3>Display all users</h3></a>";
                         
-                        $pdo = null;
+                        
                         $stmt = null;
                         $users=null;
                     
@@ -108,8 +108,11 @@
                 <button class = "searchbutton" type="submit">Search</button>
             </form>
             <?php
-                $pdo = connectToDatabase();
+                include('dbConnection.php');
+
                 if($_SERVER['REQUEST_METHOD']=='POST' and isset($_POST['search'])){
+                    
+
                     echo "<br><h2>Search results: </h2><br>";
                     $sql = "SELECT * FROM posts WHERE username LIKE ? OR title LIKE ? OR content LIKE ?;";
                     $search = '%'.$_POST['search'].'%';
@@ -140,7 +143,9 @@
                         echo "</form></p>";
                         echo "</div>";
                     }
+                    $post = null;
                 }
+                $stmt = null;
             ?>
         </div>
     </div>

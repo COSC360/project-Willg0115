@@ -6,8 +6,7 @@
 </head>
 <body>
     <?php
-        include 'shortcuts.php';
-        $pdo = connectToDatabase();
+        include('dbConnection.php');
         if($_SERVER['REQUEST_METHOD']=='POST' and isset($_POST['search'])){
             echo "<br><h2>Search results: </h2><br>";
             $sql = "SELECT * FROM posts WHERE username LIKE ? OR title LIKE ? OR content LIKE ?;";

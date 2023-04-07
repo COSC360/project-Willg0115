@@ -16,8 +16,7 @@
     </div>
     <div class="main">
         <?php
-            include 'shortcuts.php';
-            $pdo = connectToDatabase();
+            include('dbConnection.php');
             session_start();
             $query = "SELECT * FROM posts WHERE username = ? ORDER BY post_date DESC";
             $stmt = $pdo->prepare($query);

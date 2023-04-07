@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['f
         move_uploaded_file($_FILES['imgprofile']['tmp_name'], "../profile_img/". $username . $ext);
     }
    
-    include 'shortcuts.php';
-    $pdo = connectToDatabase();
+    include('dbConnection.php');
     if(isset($_FILES['imgprofile'])){
         $sql = "UPDATE users SET username = ?, firstName = ?, lastName = ?, email = ? , profile_img = ? WHERE username = ?";
         $stmt = $pdo->prepare($sql);

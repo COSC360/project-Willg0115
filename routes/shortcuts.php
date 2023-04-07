@@ -1,20 +1,6 @@
 <?php
-    function connectToDatabase() {
-        $host = "cosc360.ok.ubc.ca";
-        $database = "db_63271324";
-        $user = "63271324";
-        $password = "63271324";
-        try{
-            $pdo = new PDO("mysql:host=$host;dbname=$database",$user, $password);
-        }
-        catch(PDOException $e){
-            die($e->getMessage());
-        }
-        return $pdo;
-    }
-
     function isAdmin($username){
-        $pdo = connectToDatabase();
+        include('dbConnection.php');
         $sql = "SELECT role FROM users WHERE username = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(1, $username);

@@ -10,41 +10,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['p
     $lastname = $_POST['lastName'];
     $email = $_POST['email'];
 
-    //nee to update with our database maybe
-    $host = "cosc360.ok.ubc.ca";
-    $user = "63271324";
-    $pass = "63271324";
-    $database = "db_63271324";
-    try{
-        $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $pass);
+    include('dbConnection.php');
 
-        $sql = "SELECT username, email FROM users WHERE username = ? or email = ?";
+    $sql = "SELECT username, email FROM users WHERE username = ? or email = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(1, $username);
+    $stmt->bindValue(2, $email);
+    $stmt->execute();
+    
+    if($stmt->rowCount() == 0){
+        $sql = "INSERT INTO users (username, password, firstName, lastName, email) VALUES (?,?,?,?,?)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(1, $username);
-        $stmt->bindValue(2, $email);
+        $stmt->bindValue(2, $password);
+        $stmt->bindValue(3, $firstname);
+        $stmt->bindValue(4, $lastname);
+        $stmt->bindValue(5, $email);
         $stmt->execute();
-       
-        if($stmt->rowCount() == 0){
-            $sql = "INSERT INTO users (username, password, firstName, lastName, email) VALUES (?,?,?,?,?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(1, $username);
-            $stmt->bindValue(2, $password);
-            $stmt->bindValue(3, $firstname);
-            $stmt->bindValue(4, $lastname);
-            $stmt->bindValue(5, $email);
-            $stmt->execute();
-            $pdo = null;
-            header('Location: login.html');
-            exit;
-        }else{
-            $pdo = null;
-            echo "User already exists";
-            header('Location: create.html');
-            exit;
-        }
-    }catch (PDOException $e){
-          die($e->getMessage());
+        $pdo = null;
+        header('Location: login.html');
+        exit;
+    }else{
+        $pdo = null;
+        echo "User already exists";
+        header('Location: create.html');
+        exit;
     }
+    
 } else {
     echo "Invalid request or missing parameters.";
 }

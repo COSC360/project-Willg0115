@@ -9,9 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'], $_POST['co
     $content = $_POST['comment_content'];
 
 
-    include 'shortcuts.php';
-    $pdo = connectToDatabase();
-
+    include('dbConnection.php');
+    
     $sql = "INSERT INTO comments (post_id, username, content) VALUES (?,?, ?)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(1, $post);

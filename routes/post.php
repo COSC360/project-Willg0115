@@ -15,8 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject'], $_POST['co
         move_uploaded_file($_FILES['postimage']['tmp_name'], "../uploads/". $username . $file);
     }
 
-        include 'shortcuts.php';
-        $pdo = connectToDatabase();
+       include('dbConnection.php');
 
         if(isset($_FILES['postimage'])){
             $sql = "INSERT INTO posts (username, title, type, content, post_img) VALUES (?,?,?,?,?)";

@@ -17,11 +17,9 @@
     <div class="main">
         <div id="accountcard">
         <?php
-            include 'shortcuts.php';
+            include('dbConnection.php');
             session_start();
             $username = $_SESSION['username'];
-
-            $pdo = connectToDatabase();
 
             $query = "SELECT lastName, firstName, email FROM users WHERE username = ?";
             $stmt = $pdo->prepare($query);

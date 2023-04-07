@@ -37,8 +37,7 @@
         <?php 
             session_start();
             $username = $_SESSION['username'];
-            include 'shortcuts.php';
-            $pdo = connectToDatabase();
+            include('dbConnection.php');
             
             $query = "SELECT * FROM posts WHERE username = ? ORDER BY post_date DESC";
             $stmt = $pdo->prepare($query);
