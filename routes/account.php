@@ -15,7 +15,7 @@
         </ul>
     </div>
     <div class="main">
-        <h2>My Posts</h2>
+        <h1>My Posts</h1>
         <?php
             include('dbConnection.php');
             session_start();
@@ -49,7 +49,7 @@
                 }
             } 
         ?>  
-        <h2>My Comments</h2>
+        <h1>My Comments</h1>
         <?php
         
             $query = "SELECT p.username AS p_username, c.username AS c_username, title, type, post_img, p.content AS p_content, c.content AS c_content FROM posts p JOIN comments c WHERE p.post_id = c.post_id AND c.username = ? ORDER BY comment_date DESC";
