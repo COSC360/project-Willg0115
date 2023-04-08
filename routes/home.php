@@ -155,7 +155,7 @@
                         $statement->bindValue(1, $post['username']);
                         $statement->execute();
                         if($statement->rowCount()>0){
-                            $profilePath = $statement->fetch(PDO::FETCH_ASSOC);
+                            $profilePath = $statement->fetch(PDO::FETCH_ASSOC)['profile_img'];
                             echo "<img class='profile-img' src='../profile_img/$profilePath'>";
                         }
                         if(isset($_SESSION['username'])){

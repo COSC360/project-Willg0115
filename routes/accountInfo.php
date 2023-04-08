@@ -32,7 +32,7 @@
             $email = $results['email'];
              
         ?>
-        <form id="createForm" action="editAccount.php" method="post">
+        <form id="createForm" action="editAccount.php" method="post" enctype="multipart/form-data">
             <h2>Profile Picture</h2>
             <input type="file" name="imgprofile" accept="image/png, image/gif, image/jpeg">
             <h2>First Name</h2>

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['f
 
     if(isset($_FILES['imgprofile'])){
         $ext = pathinfo($_FILES['imgprofile']["name"], PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES['imgprofile']['tmp_name'], "../profile_img/". $username . $ext);
+        move_uploaded_file($_FILES['imgprofile']['tmp_name'], "../profile_img/". $username . "." . $ext);
     }
    
     include('dbConnection.php');
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'], $_POST['f
         $stmt->bindValue(2, $firstname);
         $stmt->bindValue(3, $lastname);
         $stmt->bindValue(4, $email);
-        $stmt->bindValue(5, $username . $ext);
+        $stmt->bindValue(5, $username . "." . $ext);
         $stmt->bindValue(6, $username);
         $stmt->execute();
 
