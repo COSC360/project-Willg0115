@@ -49,6 +49,7 @@
             <li class="navadmin" onclick="showSection('searchUsers')">Manage Users</li>
             <li class="navadmin" onclick="showSection('managePosts')">Manage Posts</li>
             <li class="navadmin" onclick="showSection('userCharts')">User Charts</li>
+            <a href="account.php"><li class="navadmin">User Account</li></a>
         </ul>
     </div>
     <div class="main">
@@ -133,6 +134,15 @@
                 if ($stmt->rowCount() > 0) {
                     while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         echo "<div id='post'>";
+                        $sql = "SELECT profile_img FROM users WHERE username = ? ";
+                        $statement = $pdo->prepare($sql);
+                        $statement->bindValue(1, $post['username']);
+                        $statement->execute();
+                        if($statement->rowCount()>0){
+                            $profilePath = $statement->fetch(PDO::FETCH_ASSOC)['profile_img'];
+                            echo "<img id='profile-img' src='../profile_img/$profilePath'>";
+                        }
+                        echo "<h2 id='user'>" . $post['username'] . "</h2>";
                         echo "<h2 id='post-title'>" . $post['title'] . "</h2>";
                         echo "<h3 id='post-info'>" . $post['type'] . "</h3>";
                         if (!empty($post['post_img'])) {
@@ -158,5 +168,6 @@
             <div id="commentChart"></div>
         </div>
     </div>
+    
 </body>
 </html>

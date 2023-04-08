@@ -112,3 +112,15 @@ td, th{
     border-radius: 5px;
     margin: 10px 0; 
 }
+#profile-img{
+    width: 4%;
+    display: inline;
+}
+#user{
+    display: inline;
+    position:relative;
+    bottom: 1em;
+    left: 1em;
+ 
+}
+    

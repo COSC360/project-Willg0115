@@ -71,7 +71,15 @@ include 'headers/header2.php'; ?>
                 while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     if ($post['p_username'] == $_SESSION['username']) {
                         echo "<div class='post'>";
-                        echo "<h2>" . $post['p_username'] . "</h2>";
+                        $sql = "SELECT profile_img FROM users WHERE username = ? ";
+                        $statement = $pdo->prepare($sql);
+                        $statement->bindValue(1, $post['p_username']);
+                        $statement->execute();
+                        if($statement->rowCount()>0){
+                            $profilePath = $statement->fetch(PDO::FETCH_ASSOC)['profile_img'];
+                            echo "<img id='profile-img' src='../profile_img/$profilePath'>";
+                        }
+                        echo "<h2 id='user'>" . $post['p_username'] . "</h2>";
                         echo "<h3>" . $post['title'] . "</h3>";
                         echo "<h4>" . $post['type'] . "</h4>";
                         if (!empty($post['post_img'])) {

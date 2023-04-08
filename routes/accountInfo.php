@@ -34,6 +34,17 @@
         ?>
         <form id="createForm" action="editAccount.php" method="post" enctype="multipart/form-data">
             <h2>Profile Picture</h2>
+            <?php  
+                $sql = "SELECT profile_img FROM users WHERE username = ? ";
+                $statement = $pdo->prepare($sql);
+                $statement->bindValue(1, $username);
+                $statement->execute();
+                if($statement->rowCount()>0){
+                    $profilePath = $statement->fetch(PDO::FETCH_ASSOC)['profile_img'];
+                    echo "<img id='profile-img2' src='../profile_img/$profilePath'>";
+                }
+            ?>
+            <br>
             <input type="file" name="imgprofile" accept="image/png, image/gif, image/jpeg">
             <h2>First Name</h2>
             <input class="required" type="text" <?php echo "value='$firstname'"; ?> name="firstName">

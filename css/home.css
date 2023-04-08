@@ -63,3 +63,14 @@
 .post-content {
     margin-left: 50px;
 }
+#profile-img{
+    width: 4%;
+    display: inline;
+}
+#user{
+    display: inline;
+    position:relative;
+    bottom: 1em;
+    left: 1em;
+ 
+}

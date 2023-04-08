@@ -94,6 +94,15 @@
                     while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         
                         echo "<div class='post'>";
+                        $sql = "SELECT profile_img FROM users WHERE username = ? ";
+                        $statement = $pdo->prepare($sql);
+                        $statement->bindValue(1, $post['username']);
+                        $statement->execute();
+                        if($statement->rowCount()>0){
+                            $profilePath = $statement->fetch(PDO::FETCH_ASSOC)['profile_img'];
+                            echo "<img id='profile-img' src='../profile_img/$profilePath'>";
+                        }
+                        echo "<h2 id='user'>" . $post['username'] . "</h2>";
                         if(isset($_SESSION['username'])){
                         echo "<div class='vote-buttons'>";
                         echo "<span class='vote-button upvote' data-post-id='".$post['post_id']."'>&uarr;</span>";
@@ -102,7 +111,6 @@
                         echo "</div>";
                         }
                         echo "<div class='post-content'>";
-                        echo "<h2>" . $post['username'] . "</h2>";
                         echo "<h3>" . $post['title'] . "</h3>";
                         echo "<h4>" . $post['type'] . "</h4>";
                         if (!empty($post['post_img'])) {
@@ -156,8 +164,9 @@
                         $statement->execute();
                         if($statement->rowCount()>0){
                             $profilePath = $statement->fetch(PDO::FETCH_ASSOC)['profile_img'];
-                            echo "<img class='profile-img' src='../profile_img/$profilePath'>";
+                            echo "<img id='profile-img' src='../profile_img/$profilePath'>";
                         }
+                        echo "<h2 id='user'>" . $post['username'] . "</h2>";
                         if(isset($_SESSION['username'])){
                         echo "<div class='vote-buttons'>";
                         echo "<span class='vote-button upvote' data-post-id='".$post['post_id']."'>&uarr;</span>";
@@ -166,7 +175,6 @@
                         echo "</div>";
                         }
                         echo "<div class='post-content'>";
-                        echo "<h2>" . $post['username'] . "</h2>";
                         echo "<h3>" . $post['title'] . "</h3>";
                         echo "<h4>" . $post['type'] . "</h4>";
                         if (!empty($post['post_img'])) {
