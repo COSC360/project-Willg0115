@@ -27,7 +27,7 @@ error_reporting(E_ALL);
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
                 echo "<div class='post'>";
                 echo "<form id='comment-form' action='comment.php' method='post'>";
-                echo "<h2>Comment</h2>";
+                echo "<h2>Comment - " . $_POST['title'] . "</h2>";
                 echo "<input type='hidden' name='post_id' value='".$_POST['post_id']."'>";
                 echo "<textarea id='comment_content' name='comment_content' placeholder='comment' required></textarea><br>";
                 echo "<button type='submit'>Submit</button>";
@@ -63,9 +63,10 @@ error_reporting(E_ALL);
                         }
                         echo "<p>" . $post['content'] . "</p>";
                         if(isset($_SESSION['username'])){
-                            echo "<form action=\"resort.php\" method=\"post\">";
-                                echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
-                                echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
+                            echo "<form action=\"backcountry.php\" method=\"post\">";
+                            echo "<input type='hidden' name='title' value='".$post['title']."'>";   
+                            echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
+                            echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
                             echo "</form>";
                         }
                         echo "</div>";

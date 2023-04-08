@@ -66,12 +66,23 @@
     </div>
     
     <div class="main">
+    <?php
+        include('dbConnection.php');
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
+                echo "<div class='post'>";
+                echo "<form id='comment-form' action='comment.php' method='post'>";
+                echo "<h2>Comment - " . $_POST['title'] . "</h2>";
+                echo "<input type='hidden' name='post_id' value='".$_POST['post_id']."'>";
+                echo "<textarea id='comment_content' name='comment_content' placeholder='comment' required></textarea><br>";
+                echo "<button type='submit'>Submit</button>";
+                echo "</form>";
+                echo "<a href='home.php'>Cancel</a></div>";      
+            }
+    ?>
         <div class='posts'>   
             <h2>Hot Posts</h2> 
             
             <?php
-                include('dbConnection.php');
-
                 $today = date('Y-m-d');
 
                 $query = "SELECT * FROM posts WHERE post_date LIKE ? ORDER BY likes DESC LIMIT 3";
@@ -98,8 +109,9 @@
                         }
                         echo "<p>" . $post['content'] . "</p>";
                         if(isset($_SESSION['username'])){
-                            echo "<form action=\"resort.php\" method=\"post\">";
+                            echo "<form action=\"home.php\" method=\"post\">";
                                 echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
+                                echo "<input type='hidden' name='title' value='".$post['title']."'>";
                                 echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
                             echo "</form>";
                         }
@@ -154,21 +166,13 @@
                         echo "<p>" . $post['content'] . "</p>";
                         if(isset($_SESSION['username'])){
                             echo "<form action=\"home.php\" method=\"post\">";
-                                echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
-                                echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
+                            echo "<input type='hidden' name='title' value='".$post['title']."'>";   
+                            echo "<input type='hidden' name='post_id' value='".$post['post_id']."'>";
+                            echo "<button type=\"submit\" class=\"comment-button\">Comment</button>";
                             echo "</form>";
                         }
                         echo "</div>";
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id']) && $_POST['post_id'] ==$post['post_id']) {
-                            echo "<div class='post'>";
-                            echo "<form id='comment-form' action='comment.php' method='post'>";
-                            echo "<h2>Comment</h2>";
-                            echo "<input type='hidden' name='post_id' value='".$_POST['post_id']."'>";
-                            echo "<textarea id='comment_content' name='comment_content' placeholder='comment' required></textarea><br>";
-                            echo "<button type='submit'>Submit</button>";
-                            echo "</form>";
-                            echo "<a href='home.php'>Cancel</a></div>";      
-                        }
+                        
 
                         $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
                         $stmt2 = $pdo->prepare($query);
