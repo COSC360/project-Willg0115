@@ -26,6 +26,7 @@ include 'headers/header2.php'; ?>
         </ul>
     </div>
     <div class="main">
+        <h1>My Posts</h1>
         <?php
             include('dbConnection.php');
             $query = "SELECT * FROM posts WHERE username = ? ORDER BY post_date DESC";
@@ -57,6 +58,35 @@ include 'headers/header2.php'; ?>
                     echo "</div>";
                 }
             } 
-        ?>       
+        ?>  
+        <h1>My Comments</h1>
+        <?php
+        
+            $query = "SELECT p.username AS p_username, c.username AS c_username, title, type, post_img, p.content AS p_content, c.content AS c_content FROM posts p JOIN comments c WHERE p.post_id = c.post_id AND c.username = ? ORDER BY comment_date DESC";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindValue(1, $_SESSION['username']);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                while ($post = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    if ($post['p_username'] == $_SESSION['username']) {
+                        echo "<div class='post'>";
+                        echo "<h2>" . $post['p_username'] . "</h2>";
+                        echo "<h3>" . $post['title'] . "</h3>";
+                        echo "<h4>" . $post['type'] . "</h4>";
+                        if (!empty($post['post_img'])) {
+                            echo "<img src='../uploads/" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
+                        }
+                        echo "<p>" . $post['p_content'] . "</p>";
+                    
+                        echo "<div class ='post'>";
+                        echo "<h3>" . $post['c_username'] . "</h3>";
+                        echo "<p>" . $post['c_content'] . "</p>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                }
+            }  
+        ?>           
     </div>
 </body>
