@@ -1,4 +1,5 @@
 <?php
+    //function isAdmin($username, $pdo){ //for testing
     function isAdmin($username){
         include('dbConnection.php');
         $sql = "SELECT role FROM users WHERE username = ?";
