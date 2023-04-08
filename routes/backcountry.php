@@ -34,25 +34,9 @@ error_reporting(E_ALL);
                 echo "</form>";
                 echo "<a  href='backcountry.php'>Cancel</a></div>";    
             }  else
-        echo "<div class='dumpings'>
-            <h2>Today's Dumpings</h2>
-            <div class='dumping'>
-                <img >
-                <h3>Jackson Hole</h3>
-            </div>
-            <div class='dumping'>
-                <img >
-                <h3>Revelstoke</h3>
-            </div>
-            <div class='dumping'>
-                <img >
-                <h3>Big White</h3>
-            </div>
-            
-        </div>
-        <div class='posts'>
-            <h2>Backcountry Posts</h2>";
             ?>
+            <div class='posts'>
+            <h2>Backcountry Posts</h2>
             <?php
                 include('dbConnection.php');
                     

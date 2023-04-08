@@ -53,7 +53,6 @@
                         echo "<img src='" . $post['post_img'] . "' alt='" . $post['title'] . "'>";
                     }
                     echo "<p>" . $post['content'] . "</p>";
-                    echo "<p><button class='like-button' onClick=incrementLikes(this)>^ " . $post['likes'] . "</button></p>";
                     $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
                     $stmt2 = $pdo->prepare($query);
                     $stmt2->bindValue(1, $post['post_id']);
