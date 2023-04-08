@@ -5,7 +5,18 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/account.css">
 </head>
-<?php include 'headers/header2.php'; ?>
+
+<?php 
+    session_start();
+    $redirection = FALSE;
+    if(isset($_SESSION['username'])){
+        $redirection = TRUE;
+    }
+    if($redirection == FALSE){
+        header('Location: home.php');
+    }
+
+include 'headers/header2.php'; ?>
 <body>
     <div class="menu">
         <ul>
@@ -17,7 +28,6 @@
     <div class="main">
         <?php
             include('dbConnection.php');
-            session_start();
             $query = "SELECT * FROM posts WHERE username = ? ORDER BY post_date DESC";
             $stmt = $pdo->prepare($query);
             $stmt->bindValue(1, $_SESSION['username']);

@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['username']) && isset($_POST['state'])) {
-    include '../shortcuts.php';
-    $pdo = connectToDatabase();
+    include('../dbConnection.php');
+    
     $username = $_POST["username"];
     $currentState = $_POST["state"];
     if($currentState == 'able'){
