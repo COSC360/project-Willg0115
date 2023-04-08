@@ -21,4 +21,3 @@
         </nav>
     </div>
 </header>
-<div id="backgroundlogo"></div>
