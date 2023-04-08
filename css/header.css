@@ -1,65 +1,111 @@
-
-header img{
-    float: left;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-header{
-    height: 80px;
-    width: 100%;
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
     background-color: #256F5C;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     z-index: 100;
-    white-space: nowrap;
 }
-nav{
-    float:right;
-    display:flex;
-    white-space: nowrap;
 
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
 }
-header ul{
-    list-style:none;
+
+.logo {
+    display: flex;
+    align-items: center;
 }
-header li{
-    margin-right: 1em;
-    text-decoration: none; 
-    text-align: center;
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav form {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: azure;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.5em;
+}
+
+nav ul li a:hover {
     background-color: #AA7F39;
 }
-header li, #search{
-    display:inline-block;
-    border: 1px solid #AA7F39;
-    border-radius: 10px;
-    padding: .1em .7em .1em .7em;
-    font-size:30px;
-}
-header li:hover{
-    border-color:black;
-    background-color: #AA7F37;
-}
+
 #search {
     background-color: azure;
-    overflow-x: auto;
-    text-align: left;
-    margin-top:0.55em;
-    width: 80%;
+    border: 1px solid #AA7F39;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+    font-size: 1.5em;
 }
-#search:focus{
+
+#search:focus {
     outline: none;
-    border: 1px solid #4a8dff;
+    border-color: #4a8dff;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(74, 141, 255, 0.5);
 }
-header nav a{
-    text-decoration: none;
-    color:azure;
-    font-family: 'Montserrat', sans-serif;
+
+@media screen and(max-width: 768px){
+.header-container{
+    flex-wrap:wrap;
 }
+.logo {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    flex-wrap: wrap;
+}
+
+#search {
+    width: 100%;
+    margin-bottom: 10px;
+}
+}
+
+
+
 .menu{
     position: fixed;
     overflow: auto;
-    top:80px;
+    top:100px;
     left:0;
     padding: 0 1em 0 1em;
     height:100vh;
