@@ -36,7 +36,7 @@ function drawRegistration(){
             width:  800,
             height: 400
         };
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(dataTable, options);
     }
     );
@@ -62,7 +62,7 @@ function drawComment(){
     fetch("admin/commentData.php").then(response => response.json()).then(data=>{
         var dataTable = new google.visualization.DataTable();
         dataTable.addColumn('string','Post Type');
-        dataTable.addColumn('number','Number of Posts');
+        dataTable.addColumn('number','Number of Comments');
         dataTable.addRows(data);
 
         var options={

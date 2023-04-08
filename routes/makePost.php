@@ -29,7 +29,7 @@
                 <input type="file" name="postimage" accept="image/png, image/gif, image/jpeg" />
                 <textarea placeholder="content" name="content" required></textarea>
                 <button type="submit" class="btn">Post</button>
-                <a href="account.html">Cancel</a>
+                <a href="account.php">Cancel</a>
             </form>
         </div>
 
