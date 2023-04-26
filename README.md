@@ -2,9 +2,6 @@
 # 360_MyDiscussion
 Project for 360. Discussion Page website similar to Reddit or HackerNews.
 
-## Group
-- Alrick Vincent
-- Will Garbutt
 
 ## Project Details
 The MyDiscussionForum website will allow registered users to engage in online discussions and unregistered users to view discussions similar to forums such as Reddit Links to an external site. and HackerNews Links to an external site..  The goal is to produce a similar type service that allows users to register, post stories and make comments on items.   Additionally, unregistered users must be able to view the content but will not be able to edit or comment on posts. 
